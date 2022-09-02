@@ -45,7 +45,16 @@ INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Polly', 'Parrot', 1
 INSERT INTO assignments (employeeId, enclosureId, day) VALUES (1, 1, 'Friday');
 INSERT INTO assignments (employeeId, enclosureId, day) VALUES (2, 2, 'Friday');
 
-SELECT * FROM staff;
-SELECT * FROM enclosures;
-SELECT * FROM animals;
-SELECT * FROM assignments;
+-- The names of the animals in a given enclosure
+SELECT animals.name, enclosures.name
+FROM animals
+INNER JOIN enclosures
+ON animals.enclosure_id = enclosures.id;
+
+-- The names of the staff working in a given enclosure
+SELECT staff.name, enclosures.name
+FROM staff
+INNER JOIN assignments
+ON staff.id = assignments.employeeid
+INNER JOIN enclosures
+ON assignments.enclosureid = enclosures.id;
