@@ -67,3 +67,13 @@ ON staff.id = assignments.employeeid
 INNER JOIN enclosures
 ON assignments.enclosureId = enclosures.id
 WHERE enclosures.closedformaintenance = true;
+
+-- The name of the enclosure where the oldest animal lives, if same age choose 
+-- first one alphabetically
+SELECT enclosures.name
+FROM animals
+INNER JOIN enclosures
+ON animals.enclosure_id = enclosures.id
+ORDER BY animals.age DESC, animals.name 
+LIMIT 1
+; 
