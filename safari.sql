@@ -45,6 +45,8 @@ INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Jenny', 'Parrot', 3
 --ASSIGNMENTS
 INSERT INTO assignments (employeeId, enclosureId, day) VALUES (1, 1, 'Friday');
 INSERT INTO assignments (employeeId, enclosureId, day) VALUES (2, 2, 'Friday');
+INSERT INTO assignments (employeeId, enclosureId, day) VALUES (1, 2, 'Wednesday');
+
 
 -- The names of the animals in a given enclosure
 SELECT animals.name, enclosures.name
