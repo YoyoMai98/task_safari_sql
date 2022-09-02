@@ -91,3 +91,8 @@ ON assignments.enclosureId = enclosures.id
 INNER JOIN animals
 ON enclosures.id = animals.enclosure_id
 WHERE staff.name = 'Yongran';
+
+-- The number of different keepers who have been assigned to work in a given enclosure
+SELECT COUNT(DISTINCT employeeId)
+FROM assignments
+WHERE enclosureId = 2;
