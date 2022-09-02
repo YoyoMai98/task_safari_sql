@@ -96,3 +96,5 @@ WHERE staff.name = 'Yongran';
 SELECT COUNT(DISTINCT employeeId)
 FROM assignments
 WHERE enclosureId = 2;
+
+-- The names of the other animals sharing an enclosure with a given animal 
