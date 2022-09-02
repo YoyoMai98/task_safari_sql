@@ -36,7 +36,7 @@ INSERT INTO staff (name, employeeNumber) VALUES ('Yongran', 1);
 INSERT INTO staff (name, employeeNumber) VALUES ('Hanqing', 2);
 --ENCLOSURES
 INSERT INTO enclosures (name, capacity, closedForMaintenance) VALUES ('Parrots', 5, false);
-INSERT INTO enclosures (name, capacity, closedForMaintenance) VALUES ('Giraffes', 2, false);
+INSERT INTO enclosures (name, capacity, closedForMaintenance) VALUES ('Giraffes', 2, true);
 --ANIMALS
 INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Melvin', 'Giraffe', 4, 2);
 INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Rachel', 'Giraffe', 1, 2);
@@ -58,3 +58,12 @@ INNER JOIN assignments
 ON staff.id = assignments.employeeid
 INNER JOIN enclosures
 ON assignments.enclosureid = enclosures.id;
+
+-- The names of staff working in enclosures which are closed for maintenance
+SELECT staff.name, enclosures.name
+FROM staff
+INNER JOIN assignments
+ON staff.id = assignments.employeeid
+INNER JOIN enclosures
+ON assignments.enclosureId = enclosures.id
+WHERE enclosures.closedformaintenance = true;
