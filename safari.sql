@@ -39,7 +39,7 @@ INSERT INTO enclosures (name, capacity, closedForMaintenance) VALUES ('Parrots',
 INSERT INTO enclosures (name, capacity, closedForMaintenance) VALUES ('Giraffes', 2, true);
 --ANIMALS
 INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Melvin', 'Giraffe', 4, 2);
-INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Rachel', 'Giraffe', 1, 2);
+INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Rachel', 'Giraffe', 4, 2);
 INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Polly', 'Parrot', 1, 1);
 --ASSIGNMENTS
 INSERT INTO assignments (employeeId, enclosureId, day) VALUES (1, 1, 'Friday');
