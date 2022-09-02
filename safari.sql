@@ -39,8 +39,9 @@ INSERT INTO enclosures (name, capacity, closedForMaintenance) VALUES ('Parrots',
 INSERT INTO enclosures (name, capacity, closedForMaintenance) VALUES ('Giraffes', 2, true);
 --ANIMALS
 INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Melvin', 'Giraffe', 4, 2);
-INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Rachel', 'Giraffe', 4, 2);
+INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Rachel', 'Giraffe', 4, 1);
 INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Polly', 'Parrot', 1, 1);
+INSERT INTO animals (name, type, age, enclosure_id) VALUES ('Jenny', 'Parrot', 3, 1);
 --ASSIGNMENTS
 INSERT INTO assignments (employeeId, enclosureId, day) VALUES (1, 1, 'Friday');
 INSERT INTO assignments (employeeId, enclosureId, day) VALUES (2, 2, 'Friday');
@@ -77,3 +78,14 @@ ON animals.enclosure_id = enclosures.id
 ORDER BY animals.age DESC, animals.name 
 LIMIT 1
 ; 
+
+-- The number of different animal types a given keeper (Yongran) has been assigned to work with.
+SELECT COUNT(DISTINCT animals.type)
+FROM staff
+INNER JOIN assignments
+ON staff.id = assignments.employeeid
+INNER JOIN enclosures
+ON assignments.enclosureId = enclosures.id
+INNER JOIN animals
+ON enclosures.id = animals.enclosure_id
+WHERE staff.name = 'Yongran';
